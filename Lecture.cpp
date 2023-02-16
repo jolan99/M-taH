@@ -6,7 +6,7 @@
 using namespace std;
 
 struct arc {
-    int x;
+    float cout;
 };
 
 typedef vector<unordered_map<int,arc>> graphe;
@@ -30,7 +30,7 @@ void add_arc (arc &a, graphe &gr, int p, int s){
 }
 
 void print_arc( arc &a){
-    cout << a.x;
+    cout << a.cout;
 }
 
 void print_unordered_map (unordered_map<int,arc> &l){
@@ -68,7 +68,7 @@ graphe read_file (string str){
         string ligne;
         int sommet1;
         int sommet2;
-        int poids;
+        float poids;
         unordered_map <int,int> degre;
         int sommet;
         int deg;
@@ -97,7 +97,6 @@ graphe read_file (string str){
                 add_arc(a,gr,sommet1,sommet2);
             }
             if (compteur == 4){
-                cout << "je rentre dans if4" << endl;
                 sommet = stoi(first_word);
                 deg = stoi(second_word);
                 degre.emplace(sommet,deg);
@@ -107,7 +106,7 @@ graphe read_file (string str){
         return gr;  
     }
     else{
-    cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." <<  strerror(errno) << endl;
+    cout << "ERREUR: Impossible d'ouvrir le fichier en lecture."  << endl;
     }
     return gr;
 }
