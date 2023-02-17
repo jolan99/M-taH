@@ -125,13 +125,32 @@ using namespace std;
 // de moi : 
 // typedef vector<vector<int>> solution;
 
-solution init_solution(int nb_classes){
-    vector<int> s;  // contenu d'une classe
-    solution sol;  // solution qui sera vide
+queue<solution> init_solutionbis(int nb_classes, donnees data){
+    graphe gr = data.graphe;
+    queue<solution> L; // solutions initiales
+    solution solution_vide;
+    solution s1;
+    solution s2;
+    vector<int> s;  // contenu d'un groupe vide
+    // solution sol;  // solution qui contiendra les deux premiers sommets
     for (int i=0 ; i<nb_classes; i++){
-        sol.push_back(s);    //on ajoute la classe vide à notre solution
+        solution_vide.push_back(s);    //on crée une solution vide
     }
-    return sol;
+    
+    
+    for(auto it = gr.begin(); it!= gr.end(); ++it){
+        s1 = solution_vide;
+        s2 = solution_vide;
+        arc a = *it;
+        s1[0].push_back(a.predecesseur);
+        s1[1].push_back(a.voisin);
+        L.push(s1);
+        s2[0].push_back(a.predecesseur);
+        s2[0].push_back(a.voisin);
+        L.push(s2);
+    }
+
+    return L;
 }
 
 
@@ -210,16 +229,14 @@ solution init_solution(int nb_classes){
 // }
 
 
-pair<solution,float> enumeration(donnees data, int nb_classes){
+pair<solution,float> enumerationbis(donnees data, int nb_classes){
     pair<solution,float> resultat;
     graphe gr=data.graphe;
-    queue<solution> L; // va stocker les sous_solutions au fur et à mesure
-    solution initialisation = init_solution(nb_classes);
-    L.push(initialisation);
+    queue<solution> L = init_solutionbis(nb_classes,data); // va stocker les sous_solutions au fur et à mesure
     queue<solution> S; // va stocker les solutions au fur et à mesure
     // la queue S au dessus est-elle vraiment necessaire? ça prend de la place, et
     // on ne veut que la solution optimale à la fin 
-    solution solution_initiale = init_solution(nb_classes);
+    
     solution sBest; // va stocker la meilleure solution
     float best_value = std::numeric_limits< float >::infinity();
     solution s_parent;
@@ -319,7 +336,18 @@ pair<solution,float> enumeration(donnees data, int nb_classes){
     return resultat;
 }
 
-
+// void print_queue_solution(queue<solution> L){
+//     cout << "debug 1 ";
+//     while(!(L.empty())){
+//         cout << "debug" ;
+//         solution sol = L.front();
+//         L.pop();
+//         pair<solution,float> resultat;
+//         resultat.first = sol;
+//         resultat.second = -1;
+//         print_solution(resultat);
+//     }
+// }
 
 // int main(){
 //     donnees data = read_file("data/cinqSommets.txt");
@@ -338,6 +366,6 @@ pair<solution,float> enumeration(donnees data, int nb_classes){
 //     // data.nb_sommets = 4;
 //     // //cout << "valeur solution : " << valeur_solution(sol, data);
 //     print_solution(enumeration(data,4));
-    
+//     //queue<solution> L = init_solution(4,data);
 //     return 0;
 // }
