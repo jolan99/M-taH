@@ -111,7 +111,6 @@ graphe read_file (string str){
     return gr;
 }
 
-
 int main(){
     graphe gr = read_file("data/cinqSommets.txt");
     print_graph(gr);
