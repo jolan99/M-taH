@@ -111,10 +111,128 @@ graphe read_file (string str){
     return gr;
 }
 
+vector<int> A, B, C; //p=3
+//construire une solution initiale
+void init_groups(graphe& gr){
+    int n = gr.size();
+    vector<int> indices(n);
+    for (int i = 0; i < n; i++) {
+        indices[i] = i;
+    }
+    random_shuffle(indices.begin(), indices.end());
+    for (int i = 0; i < n; i++) {
+        int num_A = A.size(), num_B = B.size(), num_C = C.size();
+        if (num_A <= num_B && num_A <= num_C) {
+            A.push_back(indices[i]+1);
+        } else if (num_B <= num_A && num_B <= num_C) {
+            B.push_back(indices[i]+1);
+        } else {
+            C.push_back(indices[i]+1);
+        }
+    }
+}
+
+float calc_weight(vector<int>& A, vector<int>& B, graphe& gr) {
+    float total_weight = 0.0;
+    for (int i = 0; i < A.size(); i++) {
+        int u = A[i];
+        const auto& neighbors = gr[u];
+        for (const auto& [v, edge] : neighbors) { 
+            if (std::find(B.begin(), B.end(), v) != B.end()) {
+                total_weight += edge.cout;
+            }
+        }
+    }
+    return total_weight;
+}
+
+/*float calculateGroupWeights(const graphe& gr, const vector<int>& A, const vector<int>& B, const vector<int>& C) {
+    float weightAB = 0;
+    for (int i = 0; i < A.size(); i++) {
+        for (auto it = gr[A[i]].begin(); it != gr[A[i]].end(); ++it) {
+            int v = it->first;
+            arc edge = it->second;
+            if (find(B.begin(), B.end(), v) != B.end()) {
+                cout << edge.cout <<endl;
+                weightAB += edge.cout;
+            }              
+        }
+            
+    }
+
+    float weightAC = 0;
+    for (int i = 0; i < A.size(); i++) {
+        for (auto it = gr[A[i]].begin(); it != gr[A[i]].end(); ++it) {
+            int v = it->first;
+            arc edge = it->second;
+            if (find(C.begin(), C.end(), v) != C.end()) {
+                weightAC += edge.cout;
+            }              
+        }
+            
+    }
+
+    float weightBC = 0;
+    for (int i = 0; i < B.size(); i++) {
+        for (auto it = gr[B[i]].begin(); it != gr[B[i]].end(); ++it) {
+            int v = it->first;
+            arc edge = it->second;
+            if (find(C.begin(), C.end(), v) != C.end()) {
+                weightBC += edge.cout;
+            }              
+        }
+            
+    }
+
+    return weightAB + weightAC + weightBC;
+}*/
+
+void print_solution(vector<int> A, vector<int> B, vector<int> C){
+    cout << "Solution: A={";
+    for (int i = 0; i < A.size(); i++) {
+        cout << A[i] << (i == A.size() - 1 ? "}" : ", ");
+    }
+    cout << ", B={";
+    for (int i = 0; i < B.size(); i++) {
+        cout << B[i] << (i == B.size() - 1 ? "}" : ", ");
+    }
+    cout << ", C={";
+    for (int i = 0; i < C.size(); i++) {
+        cout << C[i] << (i == C.size() - 1 ? "}" : ", ")<<endl;
+    }
+}
+
+//voisinages:3-sweep
+void enumerate_neighbors(vector<int> A, vector<int> B, vector<int> C) {
+    vector<int> neighbor_A = A;
+    vector<int> neighbor_B = B;
+    vector<int> neighbor_C = C;
+    for (int i = 0; i < A.size(); i++){
+        for (int j = 0; j < B.size(); j++){
+            for (int k = 0; k < C.size(); k++){
+                int a = neighbor_A[i];
+                neighbor_A[i] = neighbor_B[j];
+                neighbor_B[j] = neighbor_C[k];
+                neighbor_C[k] = a;
+                print_solution(neighbor_A,neighbor_B,neighbor_C);
+            }
+        }
+    }
+}
+
+void descente_de_gradient(graphe &gr){
+    init_groups(gr);
+    print_solution(A,B,C);
+    enumerate_neighbors(A,B,C);
+    float weight_total = calc_weight(A,B,gr);
+    cout << weight_total << endl;
+}
 
 int main(){
     graphe gr = read_file("data/cinqSommets.txt");
     print_graph(gr);
+    descente_de_gradient(gr);
+    //float calculateGroupWeights(const graphe& gr, const vector<int>& A, const vector<int>& B, const vector<int>& C);
     return 0;
 }
 
