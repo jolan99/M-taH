@@ -27,7 +27,7 @@ int main(){
     // add_arc(c,gr);
     // data.graphe = gr;
     // data.nb_sommets = 4;
-    // //cout << "valeur solution : " << valeur(sol, data);
+    //cout << "valeur solution : " << valeur(sol, data);
     print_solution(enumerationbis(data,4));
     //queue<solution> L = init_solution(4,data);
     //cout << "coucou";
