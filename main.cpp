@@ -10,6 +10,7 @@
 #include "Lecturebis.h"
 #include "enumeration.h"
 #include "enumerationbis.h"
+#include "Dgradient.h"
 #include <chrono>
 #include <filesystem>
 #include <string>  
@@ -17,96 +18,46 @@ using namespace std;
 using recursive_directory_iterator = std::filesystem::recursive_directory_iterator;
 
 
-pair<float,pair<solution,float>> temps_execution(string file, int nb_classes){    
-    pair<float, pair<solution,float>> res;
-    donnees data = read_file(file); // On initialise le graphe.
-    print_graph(data.graphe);
-    auto start = std::chrono::high_resolution_clock::now(); // départ de la mesure du temps
-    
-    pair<solution,float> sol = enumerationbis(data,nb_classes);
 
-    auto end = std::chrono::high_resolution_clock::now(); // fin de mesure du temps.
-    
-    auto diff_time = std::chrono::duration<float>(end - start); // std::chrono::milliseconds
+///////////////// Enumération et Enumération bis //////////////
 
-    res.first = diff_time.count(); // Retour au format float en passant par le format string.
-    res.second = sol;
+// int main(){
+//     donnees data = read_file("data/quatreSommets.txt");
+//     pair<solution,float> sol;
+//     cout << "Instance : quatreSommets.txt" << endl;
+//     cout << "Algorithme d'énumération "<< endl;
+//     sol = enumeration(data,3);
+//     print_solution(sol);
+//     cout << "Algotithme d'énumération bis " << endl;
+//     sol = enumerationbis(data,3);
+//     print_solution(sol);
+//     cout << "############################"<< endl;
 
-    return(res); 
-}
+//     data = read_file("data/dixSommets.txt");
+//     cout << "Instance : dixSommets.txt" << endl;
+//     cout << "Algorithme d'énumération "<< endl;
+//     sol = enumeration(data,3);
+//     print_solution(sol);
+//     cout << "Algotithme d'énumération bis " << endl;
+//     sol = enumerationbis(data,3);
+//     print_solution(sol);
+//     cout << "############################"<< endl;
 
-
-
-
-int main(){
-    
-    //print_graph(gr);
-    //solution sol={{1,2},{3,4}};
-    // cout << is_in_group(sol, 7).first << endl;
-    // donnees data;
-    // graphe gr;
-    // arc a = {1,2,30};
-    // add_arc(a,gr);
-    // arc b = {1,3,10};
-    // add_arc(b,gr);
-    // arc c = {3,4,5};
-    // add_arc(c,gr);
-    // data.graphe = gr;
-    // data.nb_sommets = 4;
-    //cout << "valeur solution : " << valeur(sol, data);
-    //print_solution(enumeration(data,3));
-    //print_solution(enumerationbis(data,3));
-    // pair<float,pair<solution,float>> res = temps_execution("data/cinqSommets.txt", 3);
-    donnees data = read_file("data/cinqSommets.txt");
-    pair<solution,float> sol;
-    cout << "Instance : cinqSommets.txt" << endl;
-    cout << "Algorithme d'énumération "<< endl;
-    sol = enumeration(data,3);
-    print_solution(sol);
-    cout << "Algotithme d'énumération bis " << endl;
-    sol = enumerationbis(data,3);
-    print_solution(sol);
-    cout << "############################"<< endl;
-
-    data = read_file("data/quatreSommets.txt");
-    cout << "Instance : cinqSommets.txt" << endl;
-    cout << "Algorithme d'énumération "<< endl;
-    sol = enumeration(data,3);
-    print_solution(sol);
-    cout << "Algotithme d'énumération bis " << endl;
-    sol = enumerationbis(data,3);
-    print_solution(sol);
-    cout << "############################"<< endl;
-
-    data = read_file("data/dixSommets.txt");
-    cout << "Instance : cinqSommets.txt" << endl;
-    cout << "Algorithme d'énumération "<< endl;
-    sol = enumeration(data,3);
-    print_solution(sol);
-    cout << "Algotithme d'énumération bis " << endl;
-    sol = enumerationbis(data,3);
-    print_solution(sol);
-    cout << "############################"<< endl;
-
-    data = read_file("data/quinzeSommets.txt");
-    cout << "Instance : cinqSommets.txt" << endl;
-    cout << "Algorithme d'énumération "<< endl;
-    sol = enumeration(data,3);
-    print_solution(sol);
-    cout << "Algotithme d'énumération bis " << endl;
-    sol = enumerationbis(data,3);
-    print_solution(sol);
-    cout << "############################"<< endl;
-    //queue<solution> L = init_solution(4,data);
-    //cout << "coucou";
-    
-
-    // for (const auto& dirEntry : recursive_directory_iterator("data/"))
-    //  std::cout << dirEntry << std::endl;
-    return 0;
-}
+//     data = read_file("data/quinzeSommets.txt");
+//     cout << "Instance : quinzeSommets.txt" << endl;
+//     cout << "Algorithme d'énumération "<< endl;
+//     sol = enumeration(data,3);
+//     print_solution(sol);
+//     cout << "Algotithme d'énumération bis " << endl;
+//     sol = enumerationbis(data,3);
+//     print_solution(sol);
+//     cout << "############################"<< endl;
+//     return 0;
+// }
 
 namespace fs = std::filesystem;
+/////////////////// Boucle sur les fichiers //////////////////
+
 
 // int main() {
 //     fs::path current_dir = "data/"; // Chemin absolu du répertoire courant
@@ -123,3 +74,37 @@ namespace fs = std::filesystem;
 //     }
 //     return 0;
 // }
+
+
+////////////////// Descente de gradient //////////////////////
+
+
+int main() {
+    ofstream fichier("test.txt", ios::out | ios::trunc);
+    if(fichier){
+        fs::path current_dir = "data/"; // Chemin absolu du répertoire courant
+        pair<solution,float> sol;
+        int nb_classes = 3;
+        float moyenne ;
+        for (const auto& entry : fs::directory_iterator(current_dir)) {
+            moyenne = 0;
+            if (entry.is_regular_file() && entry.path().extension() == ".txt") {
+                fichier << entry.path().filename().string() << std::endl; // Afficher le nom du fichier
+                for(int r= 0; r< 1000; ++r){
+                    donnees data = read_file("data/" + entry.path().filename().string());
+                    sol= Dgradient(data,nb_classes);
+                    //print_solution(sol);
+                    moyenne += sol.second;
+                }
+                fichier << " valeur optimale moyenne après 50 essais : " << moyenne/10 << endl;
+                fichier << "\n" << endl;
+                
+            }
+        }
+        fichier.close();
+    }
+    else{
+        cout << "erreur à l'ouverture!" << endl;
+    }
+    return 0;
+}
