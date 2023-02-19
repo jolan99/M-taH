@@ -34,11 +34,10 @@ bool is_valid(solution sol, donnees data,int nb_classes);
 float valeur_solution(solution sol, donnees data);
 
 
-// fonction d'affichage 
+// fonctions d'affichage 
 void print_arc(arc &a);
 void print_graph(graphe &gr);
 void print_solution(pair<solution,float> resultat);
-void print_solution(solution sol);
 void print_queue_solution(queue<solution> L);
 
 #endif

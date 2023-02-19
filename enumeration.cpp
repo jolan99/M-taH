@@ -41,30 +41,18 @@ pair<solution,float> enumeration(donnees data, int nb_classes){
     solution s_parent;
     solution s_enfant;
     while(!(L.empty())){
-        // cout<< "debeug1 " << endl;
         s_parent = L.front(); // on étudie une sous-solution de L 
-        // cout << "##################"<< endl;
-        // cout <<"solution parent : "<< endl;
-        // print_solution(s_parent);
-        // cout << "##################"<< endl;
-        
         L.pop();
         for(auto it = gr.begin(); it!= gr.end(); ++it){ // on parcourt tous les arcs du graphe
             arc a = *it;
-            // cout << "-----------------------"<< endl;
-            // cout<< "on étudie l'arc " ;
-            // print_arc(a);
             int pred = a.predecesseur;
             int voisin = a.voisin;
             // les trois cas possibles : 
             // si le predecesseur n'est pas encore dans un groupe
             if(!(is_in_solution(s_parent, pred).first) && is_in_solution(s_parent, voisin).first){
-                //cout << "cas 1 " << endl;
                 for(int i = 0; i<nb_classes; ++i){ //On crée toutes les combinaisons possibles, pred peut être dans tous les groupes possibles
                     s_enfant = s_parent;
                     s_enfant[i].push_back(pred);
-                    // cout << "solution enfant : "<< endl;
-                    // print_solution(s_enfant);
                     float value_sol = valeur_solution(s_enfant,data);
                     if(is_valid(s_enfant,data,nb_classes)){
                         if(value_sol < best_value){
@@ -81,12 +69,9 @@ pair<solution,float> enumeration(donnees data, int nb_classes){
             }
             // si le voisin n'est pas encore dans un groupe
             if(!(is_in_solution(s_parent, voisin).first) && is_in_solution(s_parent, pred).first){
-                // cout << "cas 2 " << endl;
                 for(int i = 0; i < nb_classes; ++i){ //On crée toutes les combinaisons possibles, pred peut être dans tous les groupes possibles
                     s_enfant = s_parent;
                     s_enfant[i].push_back(voisin);
-                    // cout << "solution enfant : "<< endl;
-                    // print_solution(s_enfant);
                     float value_sol = valeur_solution(s_enfant,data);
                     if(is_valid(s_enfant,data,nb_classes)){
                         if(value_sol < best_value){
@@ -103,7 +88,6 @@ pair<solution,float> enumeration(donnees data, int nb_classes){
             }
             // si ni le voisin ni le predecesseur n'ont été assigné à un groupe
             if(!(is_in_solution(s_parent, pred).first) && !(is_in_solution(s_parent, voisin).first)){
-                // cout << "cas 3 " << endl;
                 for(int a = 0; a < nb_classes; ++a){
                     s_enfant = s_parent;
                     s_enfant[a].push_back(pred);
@@ -111,8 +95,6 @@ pair<solution,float> enumeration(donnees data, int nb_classes){
                     for(int b = 0; b < nb_classes; ++b){
                         s_enfantbis = s_enfant;
                         s_enfantbis[b].push_back(voisin);
-                        // cout << "solution enfant : ";
-                        // print_solution(s_enfantbis);
                         float value_sol = valeur_solution(s_enfantbis,data);
                         if(is_valid(s_enfantbis,data,nb_classes)){
                             if(value_sol < best_value){
