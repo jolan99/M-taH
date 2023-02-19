@@ -7,6 +7,7 @@
 #include <cstring>
 #include <queue>
 #include<limits>
+#include <Cmath>
 using namespace std;
 
 // Les structures utilisées 
@@ -37,6 +38,7 @@ float valeur_solution(solution sol, donnees data);
 void print_arc(arc &a);
 void print_graph(graphe &gr);
 void print_solution(pair<solution,float> resultat);
+void print_solution(solution sol);
 void print_queue_solution(queue<solution> L);
 
 #endif

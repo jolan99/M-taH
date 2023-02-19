@@ -6,6 +6,7 @@
 #include <queue>
 #include<limits>
 #include "utiles.h"
+#include <Cmath>
 using namespace std;
 
 
@@ -46,6 +47,9 @@ pair<bool,int> is_in_solution(solution sol, int sommet){ // regarde si un sommet
 bool is_valid(solution sol, donnees data,int nb_classes){
     bool resultat = true;
     int nb_sommets = data.nb_sommets;
+    float nb_sommets_float = float(nb_sommets);
+    float nb_classes_float = float(nb_classes);
+
     
     //graphe gr = data.graphe;
     // tous les  sommets sont dans la solution
@@ -57,7 +61,9 @@ bool is_valid(solution sol, donnees data,int nb_classes){
     }
     // respecte la condition d'équilibre 
     for(int i = 0; i< nb_classes; ++i){
-        if(sol[i].size() >= 4){
+        if(sol[i].size() > ceil(nb_sommets_float/nb_classes_float) + (0.01 * (nb_sommets_float/nb_classes_float)) || sol[i].size() < floor(nb_sommets_float/nb_classes_float) - (0.01 * (nb_sommets_float/nb_classes_float))){
+            // cout << "borne sup : " << ceil(nb_sommets/nb_classes) + (0.01 * (nb_sommets/nb_classes)) << endl; 
+            // cout <<"borne inf " << floor(nb_sommets/nb_classes) - (0.01 * (nb_sommets/nb_classes)) << endl;
             resultat = false;
         }
         if(sol[i].size() == 0){
@@ -101,10 +107,26 @@ void print_solution(pair<solution,float> resultat){
     cout << "Cette solution a pour valeur " << value<< endl;
 }
 
+void print_solution(solution sol){
+
+    int i = 1;
+    for(auto it = sol.begin(); it!= sol.end(); ++it){
+        vector<int> groupe = *it;
+        cout << "Dans le groupe "<< i<< " se trouvent les sommets ";
+        for(auto is = groupe.begin(); is!= groupe.end(); ++is){
+            cout<< *is << " " ;
+        }
+        i +=1;
+        cout << " "<< endl;
+    }
+    cout << " "<< endl;
+    
+}
+
 void print_queue_solution(queue<solution> L){
-    cout << "debug 1 ";
+    // cout << "debug 1 ";
     while(!(L.empty())){
-        cout << "debug" ;
+        // cout << "debug" ;
         solution sol = L.front();
         L.pop();
         pair<solution,float> resultat;
