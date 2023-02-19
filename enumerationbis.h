@@ -10,6 +10,8 @@
 #include<limits>
 #include "utiles.h"
 #include "Lecturebis.h"
+#include <chrono>
+#include <sstream>
 using namespace std;
 
 queue<solution> init_solutionbis(int nb_classes, donnees data);

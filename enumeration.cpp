@@ -1,12 +1,15 @@
 #include <unordered_map>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include <cstring>
 #include <queue>
 #include<limits>
 #include "utiles.h"
 #include "Lecturebis.h"
+#include <chrono>
+#include <time.h>
 using namespace std;
 
 
@@ -23,6 +26,7 @@ solution init_solution(int nb_classes){
 
 
 pair<solution,float> enumeration(donnees data, int nb_classes){
+    auto start = std::chrono::high_resolution_clock::now(); // départ de la mesure du temps
     pair<solution,float> resultat;
     graphe gr=data.graphe;
     queue<solution> L; // va stocker les sous_solutions au fur et à mesure
@@ -126,6 +130,12 @@ pair<solution,float> enumeration(donnees data, int nb_classes){
         }
 
     }
+    auto end = std::chrono::high_resolution_clock::now(); // fin de mesure du temps.
+    
+    auto diff_time = std::chrono::duration<float>(end - start); // std::chrono::milliseconds
+
+    float temps = diff_time.count(); // Retour au format float en passant par le format string.
+    cout << "Temps : " << temps << " s " << endl;
     resultat.first = sBest;
     resultat.second = best_value;
     return resultat;

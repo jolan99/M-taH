@@ -98,7 +98,7 @@ void print_solution(pair<solution,float> resultat){
         cout << " "<< endl;
     }
     cout << " "<< endl;
-    cout << " Cette solution a pour valeur " << value<< endl;
+    cout << "Cette solution a pour valeur " << value<< endl;
 }
 
 void print_queue_solution(queue<solution> L){
@@ -113,3 +113,4 @@ void print_queue_solution(queue<solution> L){
         print_solution(resultat);
     }
 }
+

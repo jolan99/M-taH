@@ -10,6 +10,7 @@
 #include<limits>
 #include "utiles.h"
 #include "Lecturebis.h"
+#include <chrono>
 using namespace std;
 
 solution init_solution(int nb_classes);
