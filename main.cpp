@@ -96,7 +96,7 @@ int main() {
                     //print_solution(sol);
                     moyenne += sol.second;
                 }
-                fichier << " valeur optimale moyenne après 50 essais : " << moyenne/10 << endl;
+                fichier << " valeur optimale moyenne après 1000 essais : " << moyenne/1000 << endl;
                 fichier << "\n" << endl;
                 
             }
