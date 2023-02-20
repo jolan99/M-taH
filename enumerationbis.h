@@ -15,5 +15,5 @@
 using namespace std;
 
 queue<solution> init_solutionbis(int nb_classes, donnees data);
-pair<solution,float> enumerationbis(donnees data, int nb_classes);
+pair<float,float> enumerationbis(donnees data, int nb_classes);
 #endif

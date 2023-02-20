@@ -1,0 +1,84 @@
+centSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 1346.54  et temps moyen : 0.0160667 s.
+
+
+cinqCentSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 5010.45  et temps moyen : 0.160809 s.
+
+
+cinqSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode d'énumération explicite : 6  et temps  : 6.22821 s.
+Méthode d'énumération améliorée : 6  et temps  : 1.38075 s.
+Méthode de la descente de gradient : 6.635  et temps moyen : 0.160871 s.
+
+
+cinquanteSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 339.886  et temps moyen : 0.163899 s.
+
+
+dixSeptSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 83.987  et temps moyen : 0.164693 s.
+
+
+dixSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 21.92  et temps moyen : 0.164869 s.
+
+
+milleSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 6671.25  et temps moyen : 0.522888 s.
+
+
+quatreSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode d'énumération explicite : 3  et temps  : 0.0356483 s.
+Méthode d'énumération améliorée : 3  et temps  : 0.0091004 s.
+Méthode de la descente de gradient : 3.685  et temps moyen : 0.52295 s.
+
+
+quinzeSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 64.842  et temps moyen : 0.523426 s.
+
+
+trenteSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 271.798  et temps moyen : 0.525462 s.
+
+
+vingtCinqSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 205.342  et temps moyen : 0.52717 s.
+
+
+vingtDeuxSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 148.721  et temps moyen : 0.528281 s.
+
+
+vingtEtunSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 145.295  et temps moyen : 0.529324 s.
+
+
+vingtQuatreSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 175.615  et temps moyen : 0.530622 s.
+
+
+vingtSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 70.675  et temps moyen : 0.531441 s.
+
+
+vingtTroisSommets.txt
+Valeur optimale moyenne après 1000 essais : 
+Méthode de la descente de gradient : 159.177  et temps moyen : 0.532635 s.
+
+

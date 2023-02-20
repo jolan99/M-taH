@@ -14,6 +14,6 @@
 using namespace std;
 
 solution init_solution(int nb_classes);
-pair<solution,float> enumeration(donnees data, int nb_classes);
+pair<float,float> enumeration(donnees data, int nb_classes);
 #endif
 

@@ -116,7 +116,7 @@ pair<solution,float> init_solution3(int nb_classes, donnees data){
     return resultat;
 }
 
-pair<solution,float> Dgradient(donnees data, int nb_classes){
+pair<float,float> Dgradient(donnees data, int nb_classes){
     auto start = std::chrono::high_resolution_clock::now();
     // on initialise avec une solution réalisable
     pair<solution,float> sol;
@@ -135,7 +135,7 @@ pair<solution,float> Dgradient(donnees data, int nb_classes){
             float value_sol = valeur_solution(sol.first,data);
             solution voisin = V.front();
             V.pop();
-            if(value_sol < sBest.second){
+            if(is_valid(voisin,data,nb_classes) && value_sol < sBest.second){
                 sBest.first = voisin;
                 sBest.second = value_sol;
             }
@@ -151,8 +151,11 @@ pair<solution,float> Dgradient(donnees data, int nb_classes){
     auto end = std::chrono::high_resolution_clock::now(); // fin de mesure du temps.
     auto diff_time = std::chrono::duration<float>(end - start); // std::chrono::millisecond
     float temps = diff_time.count(); // Retour au format float en passant par le format string.
-    cout << "Temps : " << temps << " s " << endl;
+    
+    pair<float,float> resultat;
+    resultat.first = temps;
+    resultat.second = sBest.second;
 
-    return sBest;
+    return resultat;
 }
 

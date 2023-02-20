@@ -41,9 +41,9 @@ queue<solution> init_solutionbis(int nb_classes, donnees data){
 }
 
 
-pair<solution,float> enumerationbis(donnees data, int nb_classes){
+pair<float,float> enumerationbis(donnees data, int nb_classes){
     auto start = std::chrono::high_resolution_clock::now(); // départ de la mesure du temps
-    pair<solution,float> resultat;
+    pair<float,float> resultat;
     graphe gr=data.graphe;
     queue<solution> L = init_solutionbis(nb_classes,data); // va stocker les sous_solutions au fur et à mesure
     
@@ -129,8 +129,8 @@ pair<solution,float> enumerationbis(donnees data, int nb_classes){
     auto diff_time = std::chrono::duration<float>(end - start); // std::chrono::milliseconds
 
     float temps = diff_time.count(); // Retour au format float en passant par le format string.
-    cout << "Temps : " << temps << " s " << endl;
-    resultat.first = sBest;
+    
+    resultat.first = temps;
     resultat.second = best_value;
     return resultat;
 }

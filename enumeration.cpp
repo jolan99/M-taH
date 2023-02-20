@@ -25,16 +25,14 @@ solution init_solution(int nb_classes){
 
 
 
-pair<solution,float> enumeration(donnees data, int nb_classes){
+pair<float,float> enumeration(donnees data, int nb_classes){
     auto start = std::chrono::high_resolution_clock::now(); // départ de la mesure du temps
-    pair<solution,float> resultat;
+    pair<float,float> resultat;
     graphe gr=data.graphe;
     queue<solution> L; // va stocker les sous_solutions au fur et à mesure
     solution initialisation = init_solution(nb_classes);
     L.push(initialisation);
     queue<solution> S; // va stocker les solutions au fur et à mesure
-    // la queue S au dessus est-elle vraiment necessaire? ça prend de la place, et
-    // on ne veut que la solution optimale à la fin 
     solution solution_initiale = init_solution(nb_classes);
     solution sBest; // va stocker la meilleure solution
     float best_value = std::numeric_limits< float >::infinity();
@@ -117,8 +115,8 @@ pair<solution,float> enumeration(donnees data, int nb_classes){
     auto diff_time = std::chrono::duration<float>(end - start); // std::chrono::milliseconds
 
     float temps = diff_time.count(); // Retour au format float en passant par le format string.
-    cout << "Temps : " << temps << " s " << endl;
-    resultat.first = sBest;
+    
+    resultat.first = temps;
     resultat.second = best_value;
     return resultat;
 }

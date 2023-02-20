@@ -80,23 +80,50 @@ namespace fs = std::filesystem;
 
 
 int main() {
-    ofstream fichier("test.txt", ios::out | ios::trunc);
+    ofstream fichier("test5groupes.txt", ios::out | ios::trunc);
     if(fichier){
         fs::path current_dir = "data/"; // Chemin absolu du répertoire courant
-        pair<solution,float> sol;
-        int nb_classes = 3;
-        float moyenne ;
+        pair<float,float> sol_enum;
+        pair<float,float> sol_enumbis;
+        pair<float,float> sol_gradient;
+        int nb_classes = 5;
+        float moyenne_enum ;
+        float moyenne_enumbis ;
+        float moyenne_gradient ;
+        float tempsmoy_enum ;
+        float tempsmoy_enumbis ;
+        float tempsmoy_gradient ;
+        int nb_essais = 1000;
         for (const auto& entry : fs::directory_iterator(current_dir)) {
-            moyenne = 0;
+            moyenne_enum = 0;
+            moyenne_enumbis = 0;
+            moyenne_gradient = 0;
             if (entry.is_regular_file() && entry.path().extension() == ".txt") {
                 fichier << entry.path().filename().string() << std::endl; // Afficher le nom du fichier
-                for(int r= 0; r< 1000; ++r){
-                    donnees data = read_file("data/" + entry.path().filename().string());
-                    sol= Dgradient(data,nb_classes);
-                    //print_solution(sol);
-                    moyenne += sol.second;
+                donnees data = read_file("data/" + entry.path().filename().string());
+                if(entry.path().filename().string() == "quatreSommets.txt" || entry.path().filename().string() == "cinqSommets.txt" ){
+                        sol_enum= enumeration(data,nb_classes);
+                        sol_enumbis= enumerationbis(data,nb_classes);
+                        moyenne_enum = sol_enum.second;
+                        moyenne_enumbis = sol_enumbis.second;
+                        tempsmoy_enum = sol_enum.first;
+                        tempsmoy_enumbis = sol_enumbis.first;
+                    }
+                for(int r= 0; r< nb_essais; ++r){
+                    
+                    
+                    sol_gradient = Dgradient(data,nb_classes);
+                    
+                    moyenne_gradient += sol_gradient.second;
+                    tempsmoy_gradient += sol_gradient.first;
                 }
-                fichier << " valeur optimale moyenne après 1000 essais : " << moyenne/1000 << endl;
+                fichier << "Valeur optimale moyenne après "<<nb_essais <<" essais : " <<endl;
+                if(moyenne_enum != 0){
+                    fichier<< "Méthode d'énumération explicite : " <<  moyenne_enum  << "  et temps  : " <<tempsmoy_enum  << " s."<< endl;
+                    fichier<< "Méthode d'énumération améliorée : " <<  moyenne_enumbis<< "  et temps  : " << tempsmoy_enumbis<< " s."<<endl;
+                }
+                
+                fichier<< "Méthode de la descente de gradient : " <<  moyenne_gradient/nb_essais <<"  et temps moyen : " <<tempsmoy_gradient/nb_essais << " s."<< endl;
                 fichier << "\n" << endl;
                 
             }
