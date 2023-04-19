@@ -122,7 +122,7 @@ pair<float,float> Dgradient(donnees data, int nb_classes){
     pair<solution,float> sol;
     sol = init_solution3(nb_classes, data);
 
-    graphe gr=data.graphe;
+    graph gr=data.graphe;
     //on stocke la meilleure solution, initialisée par la première solution réalisable
     pair<solution,float> sBest;
     sBest = sol; 

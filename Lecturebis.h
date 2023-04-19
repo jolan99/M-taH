@@ -12,6 +12,6 @@
 #include "utiles.h"
 using namespace std;
 
-void add_arc (arc &a, graphe &gr);
+void add_arc (arc &a, graph &gr);
 donnees read_file (string str);
 #endif

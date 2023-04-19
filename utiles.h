@@ -17,9 +17,9 @@ struct arc {
     float cost;
 };
 
-typedef vector<arc> graphe;
+typedef vector<arc> graph;
 struct donnees {
-    graphe graphe;
+    graph graphe;
     int nb_sommets;
 };
 
@@ -36,7 +36,7 @@ float valeur_solution(solution sol, donnees data);
 
 // fonctions d'affichage 
 void print_arc(arc &a);
-void print_graph(graphe &gr);
+void print_graph(graph &gr);
 void print_solution(pair<solution,float> resultat);
 void print_queue_solution(queue<solution> L);
 

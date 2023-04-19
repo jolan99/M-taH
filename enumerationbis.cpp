@@ -14,7 +14,7 @@ using namespace std;
 
 
 queue<solution> init_solutionbis(int nb_classes, donnees data){
-    graphe gr = data.graphe;
+    graph gr = data.graphe;
     queue<solution> L; // solutions initiales
     solution solution_vide;
     solution s1;
@@ -44,7 +44,7 @@ queue<solution> init_solutionbis(int nb_classes, donnees data){
 pair<float,float> enumerationbis(donnees data, int nb_classes){
     auto start = std::chrono::high_resolution_clock::now(); // départ de la mesure du temps
     pair<float,float> resultat;
-    graphe gr=data.graphe;
+    graph gr=data.graphe;
     queue<solution> L = init_solutionbis(nb_classes,data); // va stocker les sous_solutions au fur et à mesure
     
     solution sBest; // va stocker la meilleure solution

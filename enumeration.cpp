@@ -28,7 +28,7 @@ solution init_solution(int nb_classes){
 pair<float,float> enumeration(donnees data, int nb_classes){
     auto start = std::chrono::high_resolution_clock::now(); // départ de la mesure du temps
     pair<float,float> resultat;
-    graphe gr=data.graphe;
+    graph gr=data.graphe;
     queue<solution> L; // va stocker les sous_solutions au fur et à mesure
     solution initialisation = init_solution(nb_classes);
     L.push(initialisation);

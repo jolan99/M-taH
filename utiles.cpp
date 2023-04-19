@@ -6,7 +6,7 @@
 #include <queue>
 #include<limits>
 #include "utiles.h"
-#include <Cmath>
+#include <cmath>
 using namespace std;
 
 
@@ -15,7 +15,7 @@ void print_arc(arc &a){
     cout <<"predecesseur: "<<a.predecesseur<< " voisin : " << a.voisin<<" coût : " << a.cost << endl;
 }
 
-void print_graph(graphe &gr){
+void print_graph(graph &gr){
     int i = 0;
     for (auto it = gr.begin(); it!= gr.end(); ++it) {
         print_arc(*it);
@@ -68,7 +68,7 @@ bool is_valid(solution sol, donnees data,int nb_classes){
 
 
 float valeur_solution(solution sol, donnees data){
-    graphe gr = data.graphe;
+    graph gr = data.graphe;
     int sommet1;
     int sommet2;
     float valeur_sol = 0;

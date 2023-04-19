@@ -11,7 +11,7 @@ using namespace std;
 
 
 
-void add_arc (arc &a, graphe &gr){  
+void add_arc (arc &a, graph &gr){  
         gr.push_back(a);   //on ajoute l'arc a à la liste d'arc =
 }
 
@@ -23,7 +23,7 @@ void add_arc (arc &a, graphe &gr){
 //     int nb_arrete;
 //     int deg_min;
 //     int deg_max;  //ouverture fichier en mode lecture
-//     graphe gr;
+//     graphegr;
 //     if (file){
 //         int compteur = 0;
 //         string thirst_word;
@@ -84,7 +84,7 @@ donnees read_file (string str){
     int nb_arrete;
     int deg_min;
     int deg_max;  //ouverture fichier en mode lecture
-    graphe gr;
+    graph gr;
     if (file){
         int compteur = 0;
         // string thirst_word;
