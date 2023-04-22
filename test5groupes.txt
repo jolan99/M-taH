@@ -1,11 +1,9 @@
-centSommets.txt
-Valeur optimale moyenne après 1 essais : 
-Méthode de la descente de gradient : 1640  et temps moyen : 0.0335485 s.
+Valeurs optimales moyennes après 1 essais : 
+                       Enumération            Enumération bis            Descente de gradient   
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps
+centSommets.txt                                                       1640  0.0614008 s.
 
 
-cinqCentSommets.txt
-Valeur optimale moyenne après 1 essais : 
-Méthode de la descente de gradient : 6051  et temps moyen : 0.199619 s.
+cinqCentSommets.txt                                                       6051  0.262799 s.
 
 
-cinqSommets.txt

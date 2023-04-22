@@ -12,7 +12,7 @@
 using namespace std;
 
 
-pair<solution,float> init_solution3(int nb_classes, donnees data);
-queue<solution> voisinage(donnees data, solution solution_initiale, int nb_classes);
+// pair<solution,float> init_solution3(int nb_classes, donnees data);
+// queue<solution> voisinage(donnees data, solution solution_initiale, int nb_classes);
 pair<float,float> Dgradient(donnees data, int nb_classes);
 #endif 

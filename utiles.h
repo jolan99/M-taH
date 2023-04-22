@@ -31,7 +31,11 @@ typedef vector<vector<int>> solution;
 
 pair<bool,int> is_in_solution(solution sol, int sommet);
 bool is_valid(solution sol, donnees data,int nb_classes);
+bool is_in_queue(queue<solution> liste_tabou, solution sol);
 float valeur_solution(solution sol, donnees data);
+queue<solution> voisinage(donnees data, solution solution_initiale, int nb_classes); //stratégie Pick and Drop
+pair<solution,float> init_solution3(int nb_classes, donnees data); // calcule une solution initiale pour les méthodes sauf les énumérations
+
 
 
 // fonctions d'affichage 
