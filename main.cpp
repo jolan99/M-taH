@@ -32,6 +32,12 @@ int main() {
     int count_gradient_meilleur_que_recuit =0;
     int count_gradient_meilleur_que_tabou =0;
     int count_tabou_meilleur_que_gradient =0;
+    int count_taboubis_meilleur_que_gradient =0;
+    int count_taboubis_meilleur_que_tabou =0;
+    int count_tabou_meilleur_que_taboubis =0;
+    int count_gradient_meilleur_que_taboubis =0;
+    int count_taboubis_meilleur_que_recuit = 0;
+    int count_recuit_meilleur_que_taboubis = 0;
                     
     cout << "Les résultats s'impriment dans le fichier \"test5groupes.txt\"" << endl;
     cout << endl;
@@ -58,11 +64,11 @@ int main() {
         float tempsmoy_tabou ;
         float tempsmoy_tabou_bis ;
         int nb_essais = 10;
-        fichier << "Valeurs optimales moyennes après "<<nb_essais <<" essais : " <<endl;
+        fichier << "Valeurs des solutions moyennes après "<<nb_essais <<" essais : " <<endl;
         
-        fichier <<"                       Enumération            Enumération bis            Descente de gradient       Recuit simulé             Tabou                     Tabou amélioré" << endl;
-        fichier <<"                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps         valeur_obj   temps        valeur_obj   temps        valeur_obj   temps"<< endl;
-        fichier <<"                                                                         m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit"<< endl;
+        // fichier <<"                       Enumération            Enumération bis            Descente de gradient       Recuit simulé             Tabou                     Tabou amélioré" << endl;
+        // fichier <<"                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps         valeur_obj   temps        valeur_obj   temps        valeur_obj   temps"<< endl;
+        // fichier <<"                                                                         m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit"<< endl;
         for (const auto& entry : fs::directory_iterator(current_dir)){
             moyenne_enum = 0;
             moyenne_enumbis = 0;
@@ -76,15 +82,22 @@ int main() {
             tempsmoy_recuit= 0 ;
             tempsmoy_tabou= 0 ;
             tempsmoy_tabou_bis= 0 ;
+            count_recuit_meilleur_que_taboubis = 0;
             count_recuit_meilleur_que_tabou = 0;
             count_tabou_meilleur_que_recuit = 0;
+            count_taboubis_meilleur_que_recuit = 0;
             count_recuit_meilleur_que_gradient =0;
             count_gradient_meilleur_que_recuit =0;
             count_gradient_meilleur_que_tabou =0;
+            count_gradient_meilleur_que_taboubis =0;
             count_tabou_meilleur_que_gradient =0;
+            count_taboubis_meilleur_que_gradient =0;
+            count_taboubis_meilleur_que_tabou =0;
+            count_tabou_meilleur_que_taboubis =0;
             if (entry.is_regular_file() && entry.path().extension() == ".txt") {
-                fichier << entry.path().filename().string() ; // Afficher le nom du fichier
-                
+                fichier << entry.path().filename().string() <<endl; // Afficher le nom du fichier
+                fichier <<"                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré" << endl;
+                fichier <<"                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps"<< endl;
                 cout << "Etude du fichier  : "<< entry.path().filename().string() << endl;
                 donnees data = read_file("data/" + entry.path().filename().string());
                 if(entry.path().filename().string() == "quatreSommets.txt" || entry.path().filename().string() == "cinqSommets.txt" ){
@@ -113,6 +126,13 @@ int main() {
 
                         /// comparaison tabou et recuit
                         if(sol_tabou_bis.second >sol_recuit.second){
+                            count_recuit_meilleur_que_taboubis += 1;
+                            
+                        }
+                        else{
+                            count_taboubis_meilleur_que_recuit +=1;
+                        }
+                        if(sol_tabou.second >sol_recuit.second){
                             count_recuit_meilleur_que_tabou += 1;
                             
                         }
@@ -131,13 +151,29 @@ int main() {
 
                         /// comparaison descente de gradient et tabou
                         if(sol_tabou_bis.second >sol_gradient.second){
+                            count_gradient_meilleur_que_taboubis += 1;
+                            
+                        }
+                        else{
+                            count_taboubis_meilleur_que_gradient +=1;
+                        }
+                        if(sol_tabou.second >sol_gradient.second){
                             count_gradient_meilleur_que_tabou += 1;
                             
                         }
                         else{
                             count_tabou_meilleur_que_gradient +=1;
                         }
-            
+
+                        // comparaison des deux tabous : 
+
+                        if(sol_tabou_bis.second >sol_tabou.second){
+                            count_tabou_meilleur_que_taboubis += 1;
+                            
+                        }
+                        else{
+                            count_taboubis_meilleur_que_tabou +=1;
+                        }
                         
                         moyenne_gradient += sol_gradient.second;
                         tempsmoy_gradient += sol_gradient.first;
@@ -153,16 +189,16 @@ int main() {
                 // fichier << "Valeur optimale moyenne après "<<nb_essais <<" essais : " <<endl;
                 if(moyenne_enum != 0){
                     // fichier <<"                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps" << endl;
-                    fichier <<"                      "<<moyenne_enum <<"  " <<tempsmoy_enum<< " s.    "<<  moyenne_enumbis<< " " << tempsmoy_enumbis<< " s."<< endl;
+                    fichier <<"                           "<<moyenne_enum <<"        " <<tempsmoy_enum<< " s.    "<<  moyenne_enumbis<< "        " << tempsmoy_enumbis<< " s."<< endl;
                     // fichier<< "Méthode d'énumération explicite : " <<  moyenne_enum  << "  et temps  : " <<tempsmoy_enum  << " s."<< endl;
                     // fichier<< "Méthode d'énumération améliorée : " <<  moyenne_enumbis<< "  et temps  : " << tempsmoy_enumbis<< " s."<<endl;
                 }
                 // fichier <<"                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps" << endl;
-                fichier <<"                                                       "<<moyenne_gradient/nb_essais <<"  " <<tempsmoy_gradient/nb_essais << " s.     "<<moyenne_recuit/nb_essais <<"      " <<tempsmoy_recuit/nb_essais << " s.     "<<moyenne_tabou/nb_essais <<"     " <<tempsmoy_tabou/nb_essais << " s.   "<<moyenne_tabou_bis/nb_essais <<"  " <<tempsmoy_tabou_bis/nb_essais << " s.      "<< endl;
+                fichier <<"                                                                              "<<moyenne_gradient/nb_essais <<"      " <<tempsmoy_gradient/nb_essais << " s.            "<<moyenne_recuit/nb_essais <<"      " <<tempsmoy_recuit/nb_essais << " s.                "<<moyenne_tabou/nb_essais <<"      " <<tempsmoy_tabou/nb_essais << " s.         "<<moyenne_tabou_bis/nb_essais <<"     " <<tempsmoy_tabou_bis/nb_essais << " s.      "<< endl;
                 // fichier<< "Méthode de la descente de gradient : " <<  moyenne_gradient/nb_essais <<"  et temps moyen : " <<tempsmoy_gradient/nb_essais << " s."<< endl;
-                fichier << "\n" << endl;
-                fichier <<"                                                                         m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit"<< endl;
-                fichier <<"                                                                         "<<count_gradient_meilleur_que_recuit<<"    "<<  count_gradient_meilleur_que_tabou <<"               "<<count_recuit_meilleur_que_gradient<<"  "<<count_recuit_meilleur_que_tabou<<"                                                           "<<count_tabou_meilleur_que_gradient << "    " <<count_tabou_meilleur_que_recuit<< endl;
+                // fichier <<"                                                                         m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit"<< endl;                
+                fichier <<"                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou"<< endl;
+                fichier <<"                                                                        "<<count_gradient_meilleur_que_recuit<<"         "<<  count_gradient_meilleur_que_tabou << "        " <<count_gradient_meilleur_que_taboubis<<"             "<<count_recuit_meilleur_que_gradient<<"          "<<count_recuit_meilleur_que_tabou<< "        "<< count_recuit_meilleur_que_taboubis<<"             "<<count_tabou_meilleur_que_gradient << "             " <<count_tabou_meilleur_que_recuit << "   "<< count_tabou_meilleur_que_taboubis<<"              " <<count_taboubis_meilleur_que_gradient << "        " <<count_taboubis_meilleur_que_recuit << "       "<< count_taboubis_meilleur_que_tabou<< endl;
                 
             }
         }
