@@ -12,60 +12,35 @@ cinqCentSommets.txt                                                       0  0 s
 
                                                                          m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
                                                                          0    0               0  0                                                           0    0
-cinqSommets.txt                      6  6.71555 s.    6 1.39078 s.
-                                                       6.4  0.0001293 s.     3.7      0.001 s.     6.6     0.0111827 s.   6.5  0.0100305 s.      
+cinqSommets.txt                      6  6.42105 s.    6 1.41077 s.
+                                                       7  0.00014249 s.     0.0005      6.3 s.     7.1     0.0138127 s.   6.7  0.0107535 s.      
 
 
                                                                          m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
-                                                                         0    3               10  10                                                           7    0
+                                                                         0    0               10  10                                                           10    0
 cinquanteSommets.txt                                                       0  0 s.     0      0 s.     0     0 s.   0  0 s.      
 
 
                                                                          m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
                                                                          0    0               0  0                                                           0    0
-dixSeptSommets.txt                                                       84.3  0.00121508 s.     56.6      0.1536 s.     83.8     2.85958 s.   84.3  3.22456 s.      
+dixSeptSommets.txt                                                       84.2  0.00124313 s.     0.0179      83.6 s.     84.3     3.2206 s.   84  3.7167 s.      
 
 
                                                                          m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
-                                                                         0    4               10  10                                                           6    0
-dixSommets.txt                                                       21.6  0.00031303 s.     15      0.0089 s.     22.4     0.185951 s.   21.7  0.191234 s.      
+                                                                         0    3               10  10                                                           7    0
+dixSommets.txt                                                       21  0.00029416 s.     0.0042      20.9 s.     21.7     0.208997 s.   21.9  0.209111 s.      
 
 
                                                                          m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
-                                                                         0    5               10  10                                                           5    0
+                                                                         0    6               10  10                                                           4    0
 milleSommets.txt                                                       0  0 s.     0      0 s.     0     0 s.   0  0 s.      
 
 
                                                                          m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
                                                                          0    0               0  0                                                           0    0
-quatreSommets.txt                      3  0.044552 s.    3 0.0105016 s.
-                                                       3.8  7.389e-05 s.     2.6      0.0003 s.     3.7     0.00407306 s.   3.9  0.00351128 s.      
+quatreSommets.txt                      3  0.0447382 s.    3 0.0106615 s.
+                                                       3.7  7.63e-05 s.     0.0002      3 s.     3.9     0.00408529 s.   3.9  0.00347686 s.      
 
 
                                                                          m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
-                                                                         1    1               9  9                                                           9    1
-quinzeSommets.txt                                                       64.6  0.00081264 s.     43.2      0.0628 s.     64.6     1.54664 s.   65  1.59005 s.      
-
-
-                                                                         m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
-                                                                         0    6               10  10                                                           4    0
-trenteSommets.txt                                                       271.8  0.00336977 s.     179.8      0.9277 s.     271.9     54.8686 s.   272.2  57.9657 s.      
-
-
-                                                                         m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
-                                                                         0    4               10  10                                                           6    0
-vingtCinqSommets.txt                                                       205.3  0.00275781 s.     138.3      0.5075 s.     205     24.4547 s.   205.6  23.6271 s.      
-
-
-                                                                         m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
-                                                                         0    4               10  10                                                           6    0
-vingtDeuxSommets.txt                                                       148.8  0.00176211 s.     98.7      0.2535 s.     148.6     11.395 s.   148.8  11.8543 s.      
-
-
-                                                                         m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
-                                                                         0    5               10  10                                                           5    0
-vingtEtunSommets.txt                                                       145.5  0.00164864 s.     97.2      0.228 s.     145     9.33656 s.   144.9  9.69876 s.      
-
-
-                                                                         m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
-                                                                         0    1               10  10                                                           9    0
+                                                                         0    3               10  10                                                           7    0

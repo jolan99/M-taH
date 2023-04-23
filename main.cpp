@@ -209,3 +209,20 @@ int main() {
 
 }
 
+
+
+// int main(){
+//     donnees data = read_file("data/quinzeSommets.txt");
+//     std::cout << " Méthode du recuit simulé en cours ..." << endl;
+//     pair<float,float> sol_recuit = recuit_simule(data,3);
+//     cout << "sol : " << sol_recuit.second << "temps : " << sol_recuit.second << endl;
+//     sol_recuit = recuit_simule(data,3);
+//     cout << "sol : " << sol_recuit.second << "temps : " << sol_recuit.second << endl;
+//     sol_recuit = recuit_simule(data,3);
+//     cout << "sol : " << sol_recuit.second << "temps : " << sol_recuit.second << endl;
+//     sol_recuit = recuit_simule(data,3);
+//     cout << "sol : " << sol_recuit.second << "temps : " << sol_recuit.second << endl;
+//     sol_recuit = recuit_simule(data,3);
+//     cout << "sol : " << sol_recuit.second << "temps : " << sol_recuit.second << endl;
+//     return 0;
+// }
