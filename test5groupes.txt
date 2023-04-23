@@ -1,9 +1,4 @@
-Valeurs optimales moyennes après 1 essais : 
-                       Enumération            Enumération bis            Descente de gradient   
-                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps
-centSommets.txt                                                       1640  0.0614008 s.
-
-
-cinqCentSommets.txt                                                       6051  0.262799 s.
-
-
+Valeurs optimales moyennes après 10 essais : 
+                       Enumération            Enumération bis            Descente de gradient       Recuit simulé             Tabou                     Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps         valeur_obj   temps        valeur_obj   temps        valeur_obj   temps
+                                                                         m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit
