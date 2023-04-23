@@ -1,0 +1,99 @@
+Valeurs des solutions moyennes après 10 essais : 
+centSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              0      0 s.            0      0 s.                0      0 s.         0     0 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        0         0        0             0          0        0             0             0   0              0        0       0
+cinqCentSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              0      0 s.            0      0 s.                0      0 s.         0     0 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        0         0        0             0          0        0             0             0   0              0        0       0
+cinqSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                           7        34.24 s.    7        4.29668 s.
+                                                                              7.1      0.00013742 s.            7      0.0009 s.                7.5      0.0207151 s.         7.2     0.018606 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        9         5        2             1          5        2             5             5   1              8        8       9
+cinquanteSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              0      0 s.            0      0 s.                0      0 s.         0     0 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        0         0        0             0          0        0             0             0   0              0        0       0
+dixSeptSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              94.3      0.00122294 s.            92.9      0.0361 s.                94.4      5.52024 s.         94.6     5.71381 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        2         3        4             8          8        9             7             2   4              6        1       6
+dixSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              24.9      0.00048141 s.            24.3      0.006 s.                24.7      0.351093 s.         25.3     0.354652 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        4         2        8             6          5        6             8             5   6              2        4       4
+milleSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              0      0 s.            0      0 s.                0      0 s.         0     0 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        0         0        0             0          0        0             0             0   0              0        0       0
+quatreSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                           4        0.157956 s.    4        0.0234177 s.
+                                                                              4      9.556e-05 s.            3.3      0.0135 s.                4      0.0075474 s.         4     0.00666529 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        3         0        0             7          7        7             10             3   0              10        3       10
+quinzeSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              72.5      0.0007898 s.            72.1      0.0201 s.                72.8      3.12419 s.         72.7     3.13279 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        4         4        5             6          6        6             6             4   5              5        4       5
+trenteSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              306.3      0.00443735 s.            305.7      0.1519 s.                304.8      108.402 s.         306.4     107.827 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        6         3        4             4          3        4             7             7   5              6        6       5
+vingtCinqSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              230.6      0.00243305 s.            231.2      0.1069 s.                231.3      45.3097 s.         231     46.7532 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        7         5        5             3          5        3             5             5   2              5        7       8
+vingtDeuxSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              166.6      0.00202568 s.            166.6      0.0686 s.                167.3      24.5101 s.         167     24.4351 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        6         4        3             4          4        5             6             6   5              7        5       5
+vingtEtunSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              162.9      0.00179772 s.            162.7      0.0601 s.                163.1      18.3147 s.         162.6     19.016 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        6         4        2             4          4        3             6             6   2              8        7       8
+vingtQuatreSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              197.7      0.00334332 s.            196.7      99.0884 s.                197.4      38.4692 s.         197.6     39.2648 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        3         2        3             7          5        7             8             5   3              7        3       7
+vingtSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              79.6      0.00208948 s.            76.8      24.0398 s.                78.6      9.38591 s.         78.7     9.98269 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        3         4        4             7          7        7             6             3   7              6        3       3
+vingtTroisSommets.txt
+                       Enumération            Enumération bis            Descente de gradient                  Recuit simulé                        Tabou                    Tabou amélioré
+                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps                 valeur_obj   temps               valeur_obj   temps            valeur_obj   temps
+                                                                              178.5      0.0037951 s.            178.4      0.0709 s.                179.1      30.74 s.         178.6     32.9032 s.      
+                                                                     m.recuit  m.tabou  m.taboubis   m.gradient  m.tabou m.taboubis   m.gradient m.recuit m.taboubis   m.gradient m.recuit m.tabou
+                                                                        6         5        4             4          5        2             5             5   1              6        8       9
