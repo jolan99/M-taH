@@ -35,7 +35,7 @@ int main() {
                     
     cout << "Les résultats s'impriment dans le fichier \"test5groupes.txt\"" << endl;
     cout << endl;
-    ofstream fichier("test4groupes2.txt", ios::out | ios::trunc);
+    ofstream fichier("test3groupes2.txt", ios::out | ios::trunc);
     if(fichier){
         fs::path current_dir = "data/"; // Chemin absolu du répertoire courant
         pair<float,float> sol_enum;
@@ -44,7 +44,7 @@ int main() {
         pair<float,float> sol_recuit;
         pair<float,float> sol_tabou;
         pair<float,float> sol_tabou_bis;
-        int nb_classes = 4;
+        int nb_classes = 3;
         float moyenne_enum ;
         float moyenne_enumbis ;
         float moyenne_gradient ;
@@ -158,7 +158,7 @@ int main() {
                     // fichier<< "Méthode d'énumération améliorée : " <<  moyenne_enumbis<< "  et temps  : " << tempsmoy_enumbis<< " s."<<endl;
                 }
                 // fichier <<"                       valeur_obj   temps     valeur_obj   temps         valeur_obj   temps" << endl;
-                fichier <<"                                                       "<<moyenne_gradient/nb_essais <<"  " <<tempsmoy_gradient/nb_essais << " s."<<moyenne_recuit/nb_essais <<"  " <<tempsmoy_recuit/nb_essais << " s."<<moyenne_tabou/nb_essais <<"  " <<tempsmoy_tabou/nb_essais << " s."<<moyenne_tabou_bis/nb_essais <<"  " <<tempsmoy_tabou_bis/nb_essais << " s."<< endl;
+                fichier <<"                                                       "<<moyenne_gradient/nb_essais <<"  " <<tempsmoy_gradient/nb_essais << " s.     "<<moyenne_recuit/nb_essais <<"      " <<tempsmoy_recuit/nb_essais << " s.     "<<moyenne_tabou/nb_essais <<"     " <<tempsmoy_tabou/nb_essais << " s.   "<<moyenne_tabou_bis/nb_essais <<"  " <<tempsmoy_tabou_bis/nb_essais << " s.      "<< endl;
                 // fichier<< "Méthode de la descente de gradient : " <<  moyenne_gradient/nb_essais <<"  et temps moyen : " <<tempsmoy_gradient/nb_essais << " s."<< endl;
                 fichier << "\n" << endl;
                 fichier <<"                                                                         m.recuit  m.tabou          m.gradient  m.tabou                                 m.gradient m.recuit"<< endl;

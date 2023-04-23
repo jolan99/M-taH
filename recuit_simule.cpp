@@ -36,6 +36,6 @@ pair<float,float> recuit_simule(donnees data, int nb_classes){
     }
     clock_t end = clock();
     time_spent += (float)(end - begin) / CLOCKS_PER_SEC;
-    pair<float,float> res (Xbest.second,time_spent);
+    pair<float,float> res (time_spent,Xbest.second);
     return res;
 }
